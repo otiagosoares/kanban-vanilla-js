@@ -1,14 +1,73 @@
-var cards = document.querySelectorAll('.card')
-var dropzones = document.querySelectorAll('.dropzone')
-var btnsAddCard = document.querySelectorAll('.btn-add-card')
+var cards = document.querySelectorAll('.card');
+var dropzones = document.querySelectorAll('.dropzone');
+var btnsAddCard = document.querySelectorAll('.btn-add-card');
+
+const tasks = [
+    { id: 1, status: "progress", text: "Task1" },
+    { id: 2, status: "todo", text: "Task2" },
+    { id: 3, status: "done", text: "Task3" },
+    { id: 4, status: "done", text: "Task4" },
+    { id: 5, status: "todo", text: "Task5" },
+];
 
 window.onload = () => {
     initKanban();
+    loadTasks(tasks)
 }
 
 btnsAddCard.forEach(btn => {
     btn.addEventListener("click", addNewCard);
 })
+
+function loadTasks(tasks) {
+
+    if (tasks.length > 0) {
+
+
+        const todoDropzone = document.querySelector('.dropzone.todo');
+        const todoTasks = tasks.filter(task => task.status == 'todo');
+        todoTasks.forEach(task => {
+            todoDropzone.appendChild(htmlCard(task))
+        })
+
+        const progressDropzone = document.querySelector('.dropzone.in-progress');
+        const progressTasks = tasks.filter(task => task.status == 'progress');
+        progressTasks.forEach(task => {
+            progressDropzone.appendChild(htmlCard(task))
+        })
+
+        const doneDropzone = document.querySelector('.dropzone.done');
+        const doneTasks = tasks.filter(task => task.status == 'done');
+        doneTasks.forEach(task => {
+            doneDropzone.appendChild(htmlCard(task))
+        })
+
+        const btnCloseCard = document.querySelectorAll('.close');
+        btnCloseCard.forEach(btn => {
+            btn.addEventListener("click", deleteCard)
+        })
+    }
+}
+
+function htmlCard(task) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.setAttribute("draggable", "true");
+    card.setAttribute("id", task.id);
+    let html = `
+            <div class="status"></div>
+            <span class="close">x</span>
+            <div class="content">
+                <textarea placeholder="Type your task here...">${task.text}</textarea>
+            </div>
+    `;
+    card.innerHTML = html;
+
+    card.addEventListener("dragstart", dragstart);
+    card.addEventListener("drag", drag);
+    card.addEventListener("dragend", dragend);
+    return card;
+}
 
 function addNewCard(e) {
     const dropzone = e.target.nextElementSibling;
