@@ -1,0 +1,151 @@
+html{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+}
+
+body{
+    background-color: #130f0d;
+    color: #fff;
+}
+
+.boards{
+    display: flex;
+    margin-top: 16px;
+}
+
+.board{
+    margin: 0 16px;
+    background-color: #141316;
+    border: 1px solid #fd951f11;
+    border-radius: 4px;
+    position: relative;
+}
+
+.board h3{
+    padding: 16px;
+    margin: 0;
+    color: #b95dffcc;
+}
+
+.highlight{
+    background-color: #fd951f08;
+}
+
+.board .dropzone{
+    padding: 16px;
+    min-width: 332px;
+    min-height: 70vh;
+    margin: 0 auto;
+}
+
+.board .card{
+    padding: 16px;
+    box-shadow: 0 2px 2px -1px #b95dffcc;
+    width: 250px;
+    margin: 25px 0;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: #1a1a1c;
+    position: relative;
+}
+
+.board .card .close{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color:#141316;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+
+.board .card .close:hover:before{
+    display: block;
+}
+
+.board .card .close:before{
+    content: "Deletar Card";
+    position: absolute;
+    display: block;
+    width: 100px;
+    top: -16px;
+    right: -45px;
+    display: none;
+}
+
+.board .card .status{
+    width: 30px;
+    height: 8px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+}
+.board .todo .status{
+    background-color: red;
+}
+.board .in-progress .status{
+    background-color: #33adff;
+}
+.board .done .status{
+    background-color: #23d2ac;
+}
+
+.board .card textarea, 
+.board .card textarea:active, 
+.board .card textarea:focus{
+    background-color: transparent;
+    border: none;
+    width: 100% !important;
+    color: #fff;
+    font-family: "Nunito";
+    outline: none;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.card, .dropzone{
+    transition: .4s;
+}
+
+.is-dragging{
+    cursor: move !important;
+}
+
+.is-dragging{
+    opacity: .3;
+}
+
+.over{
+    background-color: #4cd13711;
+}
+
+.btn-add-card{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #1a1a1c;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.copy a{
+    color: violet;
+    text-decoration: none;
+}
+.copy{
+    width: 100%;
+    padding: 25px 0;
+    display: flex;
+    justify-content: center;
+}

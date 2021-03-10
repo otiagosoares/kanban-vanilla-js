@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Kanban Board</title>
+</head>
+
+<body>
+    <div class="boards">
+        <div class="board">
+            <h3>Todo</h3>
+            <button class="btn-add-card">+</button>
+            <div class="dropzone todo">
+
+            </div>
+        </div>
+        <div class="board">
+            <h3>In Progress</h3>
+            <button class="btn-add-card">+</button>
+            <div class="dropzone in-progress">
+            </div>
+        </div>
+        <div class="board">
+            <h3>Done</h3>
+            <button class="btn-add-card">+</button>
+            <div class="dropzone done">
+
+            </div>
+        </div>
+    </div>
+    <div class="copy">
+        <p>Desenvolvido por <a href="http://www.tiagosoares.com.br" target="_blank">tiagosoares.com.br</a> </p>
+    </div>
+    <script src="./dragdrop.js" defer></script>
+</body>
+
+</html>
